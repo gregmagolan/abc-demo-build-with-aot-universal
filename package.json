@@ -41,8 +41,9 @@
   "scripts": {
     "postinstall": "ngc -p angular.tsconfig.json && sh ./angular-fix-for-closure.sh",
     "build:webpack": "yarn build:src && yarn build:server && yarn build:browser:webpack && yarn build:dist:webpack",
-    "build:closure": "yarn build:src && yarn build:server && yarn build:browser:closure && yarn build:dist:closure",
+    "build:closure": "yarn build:src && yarn build:src:closure && yarn build:server && yarn build:browser:closure && yarn build:dist:closure",
     "build:src": "bazel build src",
+    "build:src:closure": "bazel build src:src-closure",
     "build:server": "bazel build src:server",
     "build:browser:webpack": "bazel build src:browser",
     "build:browser:closure": "yarn build:closure-bin && java -jar node_modules/google-closure-compiler/compiler.jar --flagfile closure.browser.conf",

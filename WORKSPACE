@@ -9,7 +9,7 @@ git_repository(
 git_repository(
   name = "build_bazel_rules_typescript",
   remote = "https://github.com/gregmagolan/rules_typescript.git",
-  tag = "abc-demo-fixes",
+  tag = "abc-demo-fixes-2",
 )
 
 git_repository(

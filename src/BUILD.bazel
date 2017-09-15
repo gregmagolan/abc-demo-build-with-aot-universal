@@ -1,13 +1,13 @@
 package(default_visibility = ["//visibility:public"])
 
 load("@angular//:index.bzl", "ng_module")
+load("//:es6_consumer.bzl", "es6_consumer")
 
 ng_module(
   name = "src",
   srcs = glob(["*.ts"]),
   deps = ["//src/app"],
   tsconfig = ":tsconfig.json",
-  prod_output = True,
 )
 
 load("@build_bazel_rules_webpack//:defs.bzl", "webpack_bundle")
@@ -22,4 +22,9 @@ webpack_bundle(
   name = "server",
   entry_point = "main.server.js",
   target = "node",
+)
+
+es6_consumer(
+  name = "src-closure",
+  deps = [":src", "//src/app"],
 )

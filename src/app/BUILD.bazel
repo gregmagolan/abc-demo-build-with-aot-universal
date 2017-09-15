@@ -6,5 +6,4 @@ ng_module(
   name = "app",
   srcs = glob(["*.ts"]),
   tsconfig = "//src:tsconfig.json",
-  prod_output = True,
 )

@@ -23,13 +23,10 @@
 
 * `build_bazel_rules_nodejs` is set to tag _0.1.0_. More recent code breaks.
 
-* `bazel_build_rules_typescript` is pulled from a fork at https://github.com/gregmagolan/rules_typescript.git
-  * Patch in here to output ES6 `*.closure.js` files as ES2015 modules instead of CommonJS. Closure build didn't work with CommonJS modules.
-  * Patch in here to force the output of the `*.closure.js` files from the ng_module build rule (there is probably a better way to do this but I'm new to bazel)
-  * Patch in here to make prod output `*.closure.js` files configurable via `prod_output` rule attribute (so that ES6 build doesn't run for tooling builds as the tooling es6 build fails)
+* `bazel_build_rules_typescript` is pulled from a fork at https://github.com/gregmagolan/rules_typescript.git (tag abc-demo-fixes-2)
   * Patch in here to prevent tsickle output `.externs.js` from being listed as outputs of ng_module rule (tsickle doesn't run with ng_module)
 
-* Angular bazel rule is pulled from a fork at https://github.com/gregmagolan/bazel-builds.git
+* Angular bazel rule is pulled from a fork at https://github.com/gregmagolan/bazel-builds.git (tag rules-typescript-fix)
   * Patch is needed to work with the latest `bazel_build_rules_typescript` code that is forked
 
 * `postinstall` step runs the `angular-fix-for-closure.sh` script which copies the es2015 angular bundled into folders that closure can find:
