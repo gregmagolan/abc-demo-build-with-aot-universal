@@ -30,7 +30,7 @@ function getDoc(filePath: string, url: string): Observable<string> {
     .finally(() => platform.destroy());
 }
 
-const serverRoutes = ['/', '/foo', '/bar'];
+const serverRoutes = ['/'];
 
 function startServer(): void {
   const app = express();
