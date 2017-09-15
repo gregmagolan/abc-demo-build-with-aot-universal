@@ -36,26 +36,27 @@
     "source-map-explorer": "^1.4.0",
     "tsickle": "^0.24.1",
     "typescript": "~2.4.2",
-    "webpack": "^3.5.6"
+    "webpack": "^3.6.0"
   },
   "scripts": {
-    "postinstall": "ngc -p angular.tsconfig.json && ./angular-fix-for-closure.sh",
-    "build:webpack": "yarn cleanup && yarn build:src && yarn build:server && yarn build:browser:webpack && yarn build:dist:webpack",
-    "build:closure": "yarn cleanup && yarn build:src && yarn build:server && yarn build:browser:closure && yarn build:dist:closure",
+    "postinstall": "ngc -p angular.tsconfig.json && sh ./angular-fix-for-closure.sh",
+    "build:webpack": "yarn build:src && yarn build:server && yarn build:browser:webpack && yarn build:dist:webpack",
+    "build:closure": "yarn build:src && yarn build:server && yarn build:browser:closure && yarn build:dist:closure",
     "build:src": "bazel build src",
     "build:server": "bazel build src:server",
     "build:browser:webpack": "bazel build src:browser",
     "build:browser:closure": "yarn build:closure-bin && java -jar node_modules/google-closure-compiler/compiler.jar --flagfile closure.browser.conf",
     "build:browser:closure-debug": "yarn build:closure-bin && java -jar node_modules/google-closure-compiler/compiler.jar --flagfile closure.browser.conf --debug --formatting PRETTY_PRINT",
-    "build:closure-bin": "rimraf ./closure-bin && mkdir closure-bin && rsync --archive --chmod=ugo=rwX bazel-bin/src closure-bin && node ./utils/closure-require-replace.js",
-    "build:dist:webpack": "mkdir -p ./dist && cp -f ./src/index.html ./dist && cp -f ./bazel-bin/src/server.js ./dist && cp -f ./bazel-bin/src/browser.js ./dist && cp -f ./node_modules/zone.js/dist/zone.min.js ./dist",
-    "build:dist:closure": "mkdir -p ./dist && cp -f ./src/index.html ./dist && cp -f ./bazel-bin/src/server.js ./dist && cp -f ./node_modules/zone.js/dist/zone.min.js ./dist",
-    "compress": "./compress.sh",
+    "build:closure-bin": "rimraf ./closure-bin && mkdir -p closure-bin && rsync --archive --chmod=ugo=rwX bazel-bin/src closure-bin && node ./utils/closure-require-replace.js",
+    "build:dist:webpack": "rimraf ./dist && mkdir -p ./dist && cp -f ./src/index.html ./dist && cp -f ./bazel-bin/src/server.js ./dist && cp -f ./bazel-bin/src/browser.js ./dist && cp -f ./node_modules/zone.js/dist/zone.min.js ./dist",
+    "build:dist:closure": "rimraf ./dist && mkdir -p ./dist && cp -f ./src/index.html ./dist && cp -f ./bazel-bin/src/server.js ./dist && cp -f ./closure-bin/src/browser.js ./dist && cp -f ./closure-bin/src/browser.js.map ./dist && cp -f ./node_modules/zone.js/dist/zone.min.js ./dist",
+    "compress": "sh ./compress.sh",
     "serve": "node ./dist/server.js",
     "format": "clang-format --glob='{src/**/,}*.{js,ts}' -i",
     "format:enforce": "clang-format --glob='{src/**/,}*.{js,ts}' -output-replacements-xml | grep -c offset | grep 0",
-    "explore:browser": "source-map-explorer dist/browser.js dist/browser.js.map",
-    "explore:server": "source-map-explorer dist/server.js dist/server.js.map",
-    "cleanup": "bazel clean && rimraf ./closure-bin && rimraf ./dist"
+    "explore:browser:closure": "source-map-explorer dist/browser.js dist/browser.js.map",
+    "clean:bazel": "bazel clean",
+    "clean:non-bazel": "rimraf ./closure-bin && rimraf ./dist",
+    "clean:all": "yarn clean:bazel && yarn clean:non-bazel"
   }
 }

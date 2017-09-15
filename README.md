@@ -15,8 +15,7 @@
   * run `yarn install`
   * run either `yarn build:webpack` or `yarn build:closure` (these both build the server bundle as well)
   * run `yarn serve` to serve the app on port 8888
-  * run `yarn explore:browser` to launch source-map-explorer on the browser bundle
-  * run `yarn explore:server` to launch source-map-explorer on the server bundle
+  * run `yarn explore:browser:closure` to launch source-map-explorer on the browser closure built bundle
 
 ### Some notes on configuration
 
