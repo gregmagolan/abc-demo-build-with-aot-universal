@@ -24,5 +24,14 @@ git_repository(
   tag = "0.0.1",
 )
 
+git_repository(
+  name = "io_bazel_rules_sass",
+  remote = "https://github.com/bazelbuild/rules_sass.git",
+  tag = "0.0.2",
+)
+
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories")
 node_repositories(package_json = ["//:package.json"])
+
+load("@io_bazel_rules_sass//sass:sass.bzl", "sass_repositories")
+sass_repositories()
