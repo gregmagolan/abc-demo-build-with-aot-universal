@@ -24,7 +24,7 @@
 * `build_bazel_rules_nodejs` is set to tag _0.1.0_. More recent code breaks.
 
 * `bazel_build_rules_typescript` is pulled from a fork at https://github.com/gregmagolan/rules_typescript.git (tag abc-demo-fixes-2)
-  * Patch in here to prevent tsickle output `.externs.js` from being listed as outputs of ng_module rule (tsickle doesn't run with ng_module)
+  * Patch in here to prevent tsickle output `.externs.js` from being listed as outputs of ng_module rule (this output is not produced from the ng_module rule)
 
 * Angular bazel rule is pulled from a fork at https://github.com/gregmagolan/bazel-builds.git (tag rules-typescript-fix)
   * Patch in here that defined `${name}_tsconfig.json` output needed to work with the latest `bazel_build_rules_typescript` code that is forked
