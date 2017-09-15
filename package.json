@@ -56,6 +56,6 @@
     "format:enforce": "clang-format --glob='{src/**/,}*.{js,ts}' -output-replacements-xml | grep -c offset | grep 0",
     "explore:browser": "source-map-explorer dist/browser.js dist/browser.js.map",
     "explore:server": "source-map-explorer dist/server.js dist/server.js.map",
-    "cleanup": "bazel clean && rimraf ./closure-bin && rimraf ./dist && rimraf ./build"
+    "cleanup": "bazel clean && rimraf ./closure-bin && rimraf ./dist"
   }
 }
