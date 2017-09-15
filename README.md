@@ -27,13 +27,13 @@
   * Patch in here to prevent tsickle output `.externs.js` from being listed as outputs of ng_module rule (tsickle doesn't run with ng_module)
 
 * Angular bazel rule is pulled from a fork at https://github.com/gregmagolan/bazel-builds.git (tag rules-typescript-fix)
-  * Patch is needed to work with the latest `bazel_build_rules_typescript` code that is forked
+  * Patch in here that defined `${name}_tsconfig.json` output needed to work with the latest `bazel_build_rules_typescript` code that is forked
 
-* for closure build, a copy of `bazel-bin` is made at `closure-bin` so a few import fixes can be made
+* For closure build, a copy of `bazel-bin` is made at `closure-bin` so a few import fixes can be made
   * ng_module rule outputs the ES6 build files as `*.closure.js` but doesn't modify the imports to match the file names; a replace-in-files script is run to fix these imports in closure-bin before running closure
   * bazel build outputs some angular imports as `node_modules/@angular/<package>/index`; replace-in-files is run to change these to `@angular/<package>` in closure-bin for the closure build
 
-* webpack config for the webpack bazel build rule on the ES5 code has hard-coded aliases to handle the `node_modules/@angular/<package>/index` imports
+* Webpack config for the webpack bazel build rule on the ES5 code has hard-coded aliases to handle the `node_modules/@angular/<package>/index` imports
 
 * Using Alex Eagle's google closure compiler fork `git+https://github.com/alexeagle/closure-compiler.git#packagejson.dist`. Build fails with newer versions.
 
