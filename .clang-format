@@ -1,0 +1,15 @@
+Language: JavaScript
+BasedOnStyle: Mozilla
+
+AlignAfterOpenBracket: AlwaysBreak
+AlignTrailingComments: false
+AllowShortBlocksOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: true
+AlwaysBreakAfterDefinitionReturnType: None
+AlwaysBreakAfterReturnType: None
+BreakAfterJavaFieldAnnotations: true
+BreakBeforeBraces: Attach
+ColumnLimit: 100
+JavaScriptQuotes: Single
+SpacesInContainerLiterals: false
