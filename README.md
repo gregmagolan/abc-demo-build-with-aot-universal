@@ -29,27 +29,16 @@
 * Angular bazel rule is pulled from a fork at https://github.com/gregmagolan/bazel-builds.git (tag rules-typescript-fix)
   * Patch is needed to work with the latest `bazel_build_rules_typescript` code that is forked
 
-* `postinstall` step runs the `angular-fix-for-closure.sh` script which copies the es2015 angular bundled into folders that closure can find:
-  * Angular 5.0.0-beta.7 packages have es2015 bundles under `<package>/esm15/index.js`; script copies these to `@angular/<package>/<package.js>` where closure can find it (along with the `.js.map` files)
-  * closure configuration to load `@angular/<package>` is:
-
-```
---js node_modules/@angular/<package>/@angular/<package>.js
---js_module_root=node_modules/@angular/<package>
-```
-
 * for closure build, a copy of `bazel-bin` is made at `closure-bin` so a few import fixes can be made
   * ng_module rule outputs the ES6 build files as `*.closure.js` but doesn't modify the imports to match the file names; a replace-in-files script is run to fix these imports in closure-bin before running closure
   * bazel build outputs some angular imports as `node_modules/@angular/<package>/index`; replace-in-files is run to change these to `@angular/<package>` in closure-bin for the closure build
 
 * webpack config for the webpack bazel build rule on the ES5 code has hard-coded aliases to handle the `node_modules/@angular/<package>/index` imports
 
-* Using google closure compiler `20170409.0.0`. Build fails with newer versions.
-
-* Bazel angular ng_module rule doesn't yet work with scss files
+* Using Alex Eagle's google closure compiler fork `git+https://github.com/alexeagle/closure-compiler.git#packagejson.dist`. Build fails with newer versions.
 
 ---
 
-That's about it. This repo demonstrates that an Angular app with AOT/Universal can be built with Bazel and Closure. Still some work to be done so the patches are not needed and in the future a bazel build rule for the closure build is needed.
+That's about it. This repo demonstrates that an Angular app with AOT/Universal can be built with Bazel and Closure. Still some work to be done so the patches are not needed and in the future the bazel build closure rule needs to work with the ng_module rule.
 
 Brotli compressed browser bundle built with closure is 33950 bytes.

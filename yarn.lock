@@ -1234,9 +1234,9 @@ glob@^7.0.0, glob@^7.0.5, glob@^7.1.2, glob@~7.1.2:
     once "^1.3.0"
     path-is-absolute "^1.0.0"
 
-google-closure-compiler@20170409.0.0:
+"google-closure-compiler@git+https://github.com/alexeagle/closure-compiler.git#packagejson.dist":
   version "20170409.0.0"
-  resolved "https://registry.yarnpkg.com/google-closure-compiler/-/google-closure-compiler-20170409.0.0.tgz#dc1be29a9f7eef8611364533b271b9fac757c970"
+  resolved "git+https://github.com/alexeagle/closure-compiler.git#2af4cb7d5591fbbe067119b8e8e6a1e1345f0c04"
   dependencies:
     chalk "^1.0.0"
     vinyl "^2.0.1"

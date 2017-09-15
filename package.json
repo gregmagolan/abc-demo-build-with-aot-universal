@@ -29,7 +29,7 @@
     "@types/node": "^8.0.28",
     "@types/webpack": "^3.0.10",
     "clang-format": "^1.0.55",
-    "google-closure-compiler": "20170409.0.0",
+    "google-closure-compiler": "git+https://github.com/alexeagle/closure-compiler.git#packagejson.dist",
     "protobufjs": "^5.0.2",
     "replace-in-file": "git+https://github.com/adamreisnz/replace-in-file#v3.0.0-beta.2",
     "rimraf": "^2.6.2",
@@ -39,7 +39,7 @@
     "webpack": "^3.6.0"
   },
   "scripts": {
-    "postinstall": "ngc -p angular.tsconfig.json && sh ./angular-fix-for-closure.sh",
+    "postinstall": "ngc -p angular.tsconfig.json",
     "build:webpack": "yarn build:src && yarn build:server && yarn build:browser:webpack && yarn build:dist:webpack",
     "build:closure": "yarn build:src && yarn build:src:closure && yarn build:server && yarn build:browser:closure && yarn build:dist:closure",
     "build:src": "bazel build src",
