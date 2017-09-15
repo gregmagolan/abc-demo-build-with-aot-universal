@@ -41,4 +41,4 @@
 
 That's about it. This repo demonstrates that an Angular app with AOT/Universal can be built with Bazel and Closure. Still some work to be done so the patches are not needed and in the future the bazel build closure rule needs to work with the ng_module rule.
 
-Brotli compressed browser bundle built with closure is 33950 bytes.
+Brotli compressed browser bundle built with closure is 34084 bytes.

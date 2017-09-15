@@ -30,6 +30,12 @@ git_repository(
   tag = "0.0.2",
 )
 
+git_repository(
+  name = "bazel_rules_abc_demo",
+  remote = "https://github.com/gregmagolan/bazel_rules_abc_demo",
+  tag = "0.0.1",
+)
+
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories")
 node_repositories(package_json = ["//:package.json"])
 

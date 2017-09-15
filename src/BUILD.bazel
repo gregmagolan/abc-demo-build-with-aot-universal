@@ -1,7 +1,7 @@
 package(default_visibility = ["//visibility:public"])
 
 load("@angular//:index.bzl", "ng_module")
-load("//:es6_consumer.bzl", "es6_consumer")
+load("@bazel_rules_abc_demo//:es6_consumer.bzl", "es6_consumer")
 
 ng_module(
   name = "src",
