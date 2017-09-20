@@ -2,8 +2,8 @@ import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {ServerModule} from '@angular/platform-server';
 
-import {AppComponent} from './app.component';
-import {AppModule} from './app.module';
+import {AppComponent} from '../../browser/app/app.component';
+import {AppModule} from '../../browser/app/app.module';
 
 @NgModule({
   bootstrap: [AppComponent],

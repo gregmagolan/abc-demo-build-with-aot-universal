@@ -1,0 +1,24 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@angular//:index.bzl", "ng_module")
+load("@bazel_rules_abc_demo//:es6_consumer.bzl", "es6_consumer")
+
+ng_module(
+  name = "src",
+  srcs = glob(["*.ts"]),
+  deps = ["//src/browser/app"],
+  tsconfig = "//src:tsconfig.json",
+)
+
+es6_consumer(
+  name = "src-closure",
+  deps = [":src", "//src/browser/app"],
+)
+
+load("@build_bazel_rules_webpack//:defs.bzl", "webpack_bundle")
+
+webpack_bundle(
+  name = "browser-webpack",
+  entry_point = "main.browser.js",
+  target = "web",
+)

@@ -26,7 +26,7 @@ const optionsClosureFixEs2015 = {
 };
 
 const optionsNgFactoryFixEs2015 = {
-  files: [ 'closure-bin/**/*.ngfactory.closure.js' ],
+  files: [ 'closure-bin/**/*.ngfactory.closure.js', 'closure-bin/**/*.ngsummary.closure.js' ],
   from: /from ['"]node_modules\/@angular\/([\.\/A-Za-z0-9-_]+)\/index['"]\;/g,
   to: (match, group, ...args) => {
     const file = args.pop();

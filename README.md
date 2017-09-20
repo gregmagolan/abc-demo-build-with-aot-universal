@@ -26,6 +26,10 @@
 * `bazel_build_rules_typescript` is pulled from a fork at https://github.com/gregmagolan/rules_typescript.git (tag abc-demo-fixes-2)
   * Patch in here to prevent tsickle output `.externs.js` from being listed as outputs of ng_module rule (this output is not produced from the ng_module rule)
 
+* Closure compiler dist is pulled from a forked build at https://github.com/gregmagolan/closure-compiler/tree/20170919.angular.dist
+  * Built on fork from branch `angular-closure-fixes` off of the latest closure compiler code as of 2017-09-19 (commit 18ab0a89095f5a193377eba3d398fc1833bd2339)
+  * A few patches to the compiler needed to get things working with the latest closure compiler code (Alex Eagle's forked dist at https://github.com/alexeagle/closure-compiler/tree/packagejson.dist was based on an older version of the closure compiler and there have been some regressions for building with Angular since then)
+
 * Angular bazel rule is pulled from a fork at https://github.com/gregmagolan/bazel-builds.git (tag rules-typescript-fix)
   * Patch in here that defined `${name}_tsconfig.json` output needed to work with the latest `bazel_build_rules_typescript` code that is forked
 
@@ -43,4 +47,4 @@
 
 That's about it. This repo demonstrates that an Angular app with AOT/Universal can be built with Bazel and Closure. Still some work to be done so the patches are not needed and in the future the bazel build closure rule needs to work with the ng_module rule.
 
-Brotli compressed browser bundle built with closure is 34084 bytes.
+Brotli compressed browser bundle built with closure is 34866 bytes.

@@ -1,0 +1,19 @@
+package(default_visibility = ["//visibility:public"])
+
+load("@angular//:index.bzl", "ng_module")
+load("@bazel_rules_abc_demo//:es6_consumer.bzl", "es6_consumer")
+
+ng_module(
+  name = "src",
+  srcs = glob(["*.ts"]),
+  deps = ["//src/server/app"],
+  tsconfig = "//src:tsconfig.json",
+)
+
+load("@build_bazel_rules_webpack//:defs.bzl", "webpack_bundle")
+
+webpack_bundle(
+  name = "server-webpack",
+  entry_point = "main.server.js",
+  target = "node",
+)
