@@ -1,6 +1,14 @@
 {
-    "compilerOptions": {
-        "lib": ["es2017", "dom"],
-        "experimentalDecorators": true
-    }
+  "compilerOptions": {
+    "lib": ["es2017", "dom"],
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "pretty": true,
+
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true
+  }
 }
