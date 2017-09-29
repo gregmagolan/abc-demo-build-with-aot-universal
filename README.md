@@ -23,15 +23,14 @@
 
 * `build_bazel_rules_nodejs` is set to tag _0.1.0_. More recent code breaks.
 
-* `bazel_build_rules_typescript` is pulled from a fork at https://github.com/gregmagolan/rules_typescript.git (tag abc-demo-fixes-2)
-  * Patch in here to prevent tsickle output `.externs.js` from being listed as outputs of ng_module rule (this output is not produced from the ng_module rule)
+* `bazel_build_rules_typescript` is pulled from a fork at https://github.com/gregmagolan/rules_typescript.git (tag abc-build-1)
+  * Patch in here to output _commonjs_ modules for es5 build so that it works with the webpack rule
 
 * Closure compiler dist is pulled from a forked build at https://github.com/gregmagolan/closure-compiler/tree/20170919.angular.dist
   * Built on fork from branch `angular-closure-fixes` off of the latest closure compiler code as of 2017-09-19 (commit 18ab0a89095f5a193377eba3d398fc1833bd2339)
   * A few patches to the compiler needed to get things working with the latest closure compiler code (Alex Eagle's forked dist at https://github.com/alexeagle/closure-compiler/tree/packagejson.dist was based on an older version of the closure compiler and there have been some regressions for building with Angular since then)
 
-* Angular bazel rule is pulled from a fork at https://github.com/gregmagolan/bazel-builds.git (tag rules-typescript-fix)
-  * Patch in here that defined `${name}_tsconfig.json` output needed to work with the latest `bazel_build_rules_typescript` code that is forked
+* Angular bazel rule is pulled from a fork at https://github.com/gregmagolan/bazel-builds.git (tag abc-build1). This is the latest code with no patches that will end up in `@angular/bazel` 5.0.0-rc.0.
 
 * Using an `es6_consumer` rule by Alex Eagle pulled from https://github.com/gregmagolan/bazel_rules_abc_demo (tag 0.0.1) to act as a consumer of the ES6 outputs from the ng_module rules so that they are generated and available for the closure compiler. In the future, the closure bazel build rule should handle this
 
@@ -40,8 +39,6 @@
   * bazel build outputs some angular imports as `node_modules/@angular/<package>/index`; replace-in-files is run to change these to `@angular/<package>` in closure-bin for the closure build
 
 * Webpack config for the webpack bazel build rule on the ES5 code has hard-coded aliases to handle the `node_modules/@angular/<package>/index` imports
-
-* Using Alex Eagle's google closure compiler fork `git+https://github.com/alexeagle/closure-compiler.git#packagejson.dist`. Build fails with newer versions.
 
 ---
 

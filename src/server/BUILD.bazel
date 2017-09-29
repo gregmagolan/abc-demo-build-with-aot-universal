@@ -14,6 +14,7 @@ load("@build_bazel_rules_webpack//:defs.bzl", "webpack_bundle")
 
 webpack_bundle(
   name = "server-webpack",
+  deps = [":src"],
   entry_point = "main.server.js",
   target = "node",
 )

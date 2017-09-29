@@ -19,6 +19,7 @@ load("@build_bazel_rules_webpack//:defs.bzl", "webpack_bundle")
 
 webpack_bundle(
   name = "browser-webpack",
+  deps = [":src"],
   entry_point = "main.browser.js",
   target = "web",
 )

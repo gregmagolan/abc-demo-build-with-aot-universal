@@ -9,31 +9,31 @@ git_repository(
 git_repository(
   name = "build_bazel_rules_typescript",
   remote = "https://github.com/gregmagolan/rules_typescript.git",
-  tag = "abc-demo-fixes-2",
+  tag = "abc-demo-build-1",
 )
 
 git_repository(
   name = "angular",
   remote = "https://github.com/gregmagolan/bazel-builds.git",
-  tag = "rules-typescript-fix",
+  tag = "abc-demo-build-1",
 )
 
 git_repository(
   name = "build_bazel_rules_webpack",
   remote = "https://github.com/gregmagolan/bazel_build_rules_webpack",
-  tag = "0.0.1",
+  tag = "0.0.2",
 )
 
 git_repository(
   name = "io_bazel_rules_sass",
   remote = "https://github.com/bazelbuild/rules_sass.git",
-  tag = "0.0.2",
+  tag = "0.0.3",
 )
 
 git_repository(
   name = "bazel_rules_abc_demo",
   remote = "https://github.com/gregmagolan/bazel_rules_abc_demo",
-  tag = "0.0.1",
+  tag = "0.0.2",
 )
 
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories")

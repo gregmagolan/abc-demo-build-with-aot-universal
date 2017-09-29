@@ -40,8 +40,8 @@
   },
   "scripts": {
     "postinstall": "ngc -p angular.tsconfig.json",
-    "build:webpack": "yarn build:src:browser && yarn build:src:server && yarn build:server && yarn build:browser:webpack && yarn build:dist:webpack",
-    "build:closure": "yarn build:src:browser && yarn build:src:browser:closure && yarn build:src:server && yarn build:server && yarn build:browser:closure && yarn build:dist:closure",
+    "build:webpack": "yarn build:server && yarn build:browser:webpack && yarn build:dist:webpack",
+    "build:closure": "yarn build:server && yarn build:src:browser:closure && yarn build:browser:closure && yarn build:dist:closure",
     "build:src:browser": "bazel build //src/browser:src",
     "build:src:browser:closure": "bazel build //src/browser:src-closure",
     "build:src:server": "bazel build //src/server:src",
