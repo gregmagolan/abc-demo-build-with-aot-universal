@@ -25,17 +25,6 @@ const optionsClosureFixEs2015 = {
   },
 };
 
-const optionsNgFactoryFixEs2015 = {
-  files: [ 'closure-bin/**/*.ngfactory.closure.js', 'closure-bin/**/*.ngsummary.closure.js' ],
-  from: /from ['"]node_modules\/@angular\/([\.\/A-Za-z0-9-_]+)\/index['"]\;/g,
-  to: (match, group, ...args) => {
-    const file = args.pop();
-    let newImport = `from '@angular/${group}';`;
-    console.error(`${file}: ${match} => ${newImport}`);
-    return newImport;
-  },
-}
-
 /**
  * For reference. Not used as module output from Bazel has been changed to ES2015.
  */
@@ -62,27 +51,9 @@ const optionsClosureFixCommonJs = {
   },
 };
 
-/**
- * For reference. Not used as module output from Bazel has been changed to ES2015.
- */
-const optionsNgFactoryFixCommonJs = {
-  files: [ 'closure-bin/**/*.ngfactory.closure.js' ],
-  from: /require\(['"]node_modules\/@angular\/([\.\/A-Za-z0-9-_]+)\/index['"]\)\;/g,
-  to: (match, group, ...args) => {
-    const file = args.pop();
-    let newImport = `require('@angular/${group}');`;
-    console.error(`${file}: ${match} => ${newImport}`);
-    return newImport;
-  },
-}
-
 try {
   console.log('Fixing .closure.js imports for closure...')
   let changedFiles = replace.sync(optionsClosureFixEs2015);
-  console.log('Modified files:', changedFiles.join(', '));
-
-  console.log('Fixing Angular imports for closure..')
-  changedFiles = replace.sync(optionsNgFactoryFixEs2015);
   console.log('Modified files:', changedFiles.join(', '));
 }
 catch (error) {
