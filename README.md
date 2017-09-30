@@ -2,7 +2,7 @@
 
 **This is a demo**. There are a number of temporary patches included to get the browser code building with closure.
 
-* demo is using Angular 5.0.0-beta.7
+* demo is using Angular 5.0.0-rc.0
 
 * server code with AOT and Universal is built with bazel angular ng_module rule and bundled with a demo bazel webpack rule
 
@@ -30,7 +30,7 @@
   * Built on fork from branch `angular-closure-fixes` off of the latest closure compiler code as of 2017-09-19 (commit 18ab0a89095f5a193377eba3d398fc1833bd2339)
   * A few patches to the compiler needed to get things working with the latest closure compiler code (Alex Eagle's forked dist at https://github.com/alexeagle/closure-compiler/tree/packagejson.dist was based on an older version of the closure compiler and there have been some regressions for building with Angular since then)
 
-* Angular bazel rule is pulled from a fork at https://github.com/gregmagolan/bazel-builds.git (tag _abc-demo-build-1_). This is the latest code with no patches that will end up in `@angular/bazel` 5.0.0-rc.0.
+* Angular bazel rule is pulled from node_modules/@angular/bazel (_5.0.0-rc.0_)
 
 * Using an `es6_consumer` rule by Alex Eagle pulled from https://github.com/gregmagolan/bazel_rules_abc_demo (tag _0.0.2_) to act as a consumer of the ES6 outputs from the ng_module rules so that they are generated and available for the closure compiler. In the future, the closure bazel build rule should handle this
 

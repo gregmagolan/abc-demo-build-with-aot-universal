@@ -12,10 +12,9 @@ git_repository(
   tag = "abc-demo-build-1",
 )
 
-git_repository(
+local_repository(
   name = "angular",
-  remote = "https://github.com/gregmagolan/bazel-builds.git",
-  tag = "abc-demo-build-1",
+  path = "node_modules/@angular/bazel",
 )
 
 git_repository(
