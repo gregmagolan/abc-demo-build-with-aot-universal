@@ -20,7 +20,7 @@ local_repository(
 git_repository(
   name = "build_bazel_rules_webpack",
   remote = "https://github.com/gregmagolan/bazel_build_rules_webpack",
-  tag = "0.0.2",
+  tag = "0.0.3",
 )
 
 git_repository(
