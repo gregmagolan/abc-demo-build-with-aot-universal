@@ -28,7 +28,7 @@
     "@types/node": "^8.0.29",
     "@types/webpack": "^3.0.10",
     "clang-format": "^1.0.55",
-    "google-closure-compiler": "git+https://github.com/gregmagolan/closure-compiler.git#20170930.angular.dist",
+    "google-closure-compiler": "git+https://github.com/gregmagolan/closure-compiler.git#20170930-HEAD+PR2641+patches.angular.dist",
     "protobufjs": "^5.0.2",
     "replace-in-file": "git+https://github.com/adamreisnz/replace-in-file#v3.0.0-beta.2",
     "rimraf": "^2.6.2",
