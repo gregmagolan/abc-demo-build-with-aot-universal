@@ -26,10 +26,8 @@
 * `bazel_build_rules_typescript` is pulled from a fork at https://github.com/gregmagolan/rules_typescript.git (tag _abc-demo-build-1_)
   * Patch in here to output _commonjs_ modules for es5 build so that it works with the webpack rule
 
-* Closure compiler dist is pulled from a forked build at https://github.com/gregmagolan/closure-compiler/tree/20170930-HEAD+PR2641+patches.angular.dist
-  * This is a build of the 20170930 HEAD + PR2641 + 2 patches
-  * First patch is a fix for entry point resolution
-  * Second patch is a fix for ambiguous import module resolution
+* Closure compiler dist is pulled from a forked build at https://github.com/gregmagolan/closure-compiler/tree/20170930-HEAD+PR2641.angular.dist
+  * This is a build of the 20170930 HEAD + PR2641 (close to what the next closure compiler release should be)
 
 * Angular bazel rule is pulled from node_modules/@angular/bazel (_5.0.0-rc.0_)
 

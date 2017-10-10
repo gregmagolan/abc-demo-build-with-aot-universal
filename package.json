@@ -15,9 +15,9 @@
     "@angular/router": "5.0.0-rc.0",
     "@angular/upgrade": "5.0.0-rc.0",
     "core-js": "^2.5.1",
-    "express": "^4.15.4",
+    "express": "^4.16.1",
     "rxjs": "^5.4.3",
-    "zone.js": "^0.8.17"
+    "zone.js": "^0.8.18"
   },
   "devDependencies": {
     "@angular/compiler": "5.0.0-rc.0",
@@ -25,14 +25,14 @@
     "@bazel/typescript": "^0.1.0",
     "@types/core-js": "^0.9.43",
     "@types/express": "^4.0.37",
-    "@types/node": "^8.0.29",
-    "@types/webpack": "^3.0.10",
+    "@types/node": "^8.0.33",
+    "@types/webpack": "^3.0.13",
     "clang-format": "^1.0.55",
-    "google-closure-compiler": "git+https://github.com/gregmagolan/closure-compiler.git#20170930-HEAD+PR2641+patches.angular.dist",
+    "google-closure-compiler": "git+https://github.com/gregmagolan/closure-compiler.git#20170930-HEAD+PR2641.angular.dist",
     "protobufjs": "^5.0.2",
-    "replace-in-file": "git+https://github.com/adamreisnz/replace-in-file#v3.0.0-beta.2",
+    "replace-in-file": "3.0.0-beta.2",
     "rimraf": "^2.6.2",
-    "source-map-explorer": "^1.4.0",
+    "source-map-explorer": "^1.5.0",
     "tsickle": "^0.24.1",
     "typescript": "~2.4.2",
     "webpack": "^3.6.0"
@@ -56,8 +56,8 @@
     "format": "clang-format --glob='{src/**/,}*.{js,ts}' -i",
     "format:enforce": "clang-format --glob='{src/**/,}*.{js,ts}' -output-replacements-xml | grep -c offset | grep 0",
     "explore:browser:closure": "source-map-explorer dist/browser.js dist/browser.js.map",
+    "clean": "yarn clean:bazel && yarn clean:non-bazel",
     "clean:bazel": "bazel clean",
-    "clean:non-bazel": "rimraf ./closure-bin && rimraf ./dist",
-    "clean:all": "yarn clean:bazel && yarn clean:non-bazel"
+    "clean:non-bazel": "rimraf ./closure-bin && rimraf ./dist"
   }
 }
