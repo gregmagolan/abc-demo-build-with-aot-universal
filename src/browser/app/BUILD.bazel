@@ -4,7 +4,7 @@ load("@angular//:index.bzl", "ng_module")
 load("@io_bazel_rules_sass//sass:sass.bzl", "sass_binary")
 
 sass_binary(
-  name = "app-styles",
+  name = "app.component",
   src = "app.component.scss",
 )
 
@@ -12,5 +12,5 @@ ng_module(
   name = "app",
   srcs = glob(["*.ts"]),
   tsconfig = "//src:tsconfig.json",
-  assets = [":app-styles.css"],
+  assets = [":app.component.css", ":app.component.html"],
 )
