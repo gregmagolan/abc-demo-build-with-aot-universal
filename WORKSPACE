@@ -20,7 +20,7 @@ local_repository(
 git_repository(
   name = "build_bazel_rules_webpack",
   remote = "https://github.com/gregmagolan/bazel_build_rules_webpack",
-  tag = "0.0.3",
+  tag = "0.0.6",
 )
 
 git_repository(
@@ -32,7 +32,7 @@ git_repository(
 git_repository(
   name = "bazel_rules_abc_demo",
   remote = "https://github.com/gregmagolan/bazel_rules_abc_demo",
-  tag = "0.0.2",
+  tag = "0.0.3",
 )
 
 load("@build_bazel_rules_nodejs//:defs.bzl", "node_repositories")

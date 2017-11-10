@@ -12,7 +12,7 @@ ng_module(
 
 es6_consumer(
   name = "src-closure",
-  deps = [":src", "//src/browser/app"],
+  deps = [":src"],
 )
 
 load("@build_bazel_rules_webpack//:defs.bzl", "webpack_bundle")
